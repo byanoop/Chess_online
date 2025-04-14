@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Chess</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Online Chess</h1>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <div id="home">
+      <input type="text" id="nickname" placeholder="Enter your nickname" maxlength="20">
+      <button id="createGame">Create Game</button>
+      <input type="text" id="roomCodeInput" placeholder="Enter room code" maxlength="4">
+      <button id="joinGame">Join Game</button>
+      <p id="errorMessage" class="error"></p>
+    </div>
+
+    <!-- Game Section -->
+    <div id="game" style="display: none;">
+      <div id="status" class="glass-panel">
+        <p>Room Code: <span id="roomCode"></span> <button id="copyCode">Copy</button></p>
+        <p id="gameStatus"></p>
+        <p>Opponent: <span id="opponentName"></span></p>
+      </div>
+      <div id="gameContent">
+        <div id="board"></div>
+        <div id="chat" class="glass-panel">
+          <div id="chatMessages"></div>
+          <input type="text" id="chatInput" placeholder="Type a message" maxlength="100">
+          <button id="sendChat">Send</button>
+        </div>
+      </div>
+      <button id="backToHome">Back to Home</button>
+    </div>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.12.1/chess.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

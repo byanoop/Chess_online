@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center everything horizontally */
+  min-height: 100vh; /* Ensure the body takes full height */
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Limit header width for consistency */
+}
+
+#home, #game {
+  margin: 20px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px; /* Match header width */
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#gameContent {
+  display: flex;
+  justify-content: center; /* Center the board and chat horizontally */
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between board and chat */
+  width: 100%;
+  max-width: 1200px; /* Match the max-width of other sections */
+  margin: 0 auto; /* Center the container */
+}
+
+#board {
+  width: 400px; /* Fixed width for the chessboard */
+  margin: 0 auto; /* Center the board within its container */
+}
+
+#chat {
+  width: 300px; /* Fixed width for the chat panel */
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#chatMessages {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.chat-message {
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.chat-message.self {
+  background-color: #d1e7dd;
+  text-align: right;
+}
+
+.chat-message.opponent {
+  background-color: #f8d7da;
+  text-align: left;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .glass-panel {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Center the Back to Home button */
+#backToHome {
+  margin: 20px auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  #gameContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  #board, #chat {
+    width: 100%;
+    max-width: 400px; /* Ensure they don't get too wide on small screens */
+  }
+}
